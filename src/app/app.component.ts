@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  backgroundColor: string = 'red';
+
 
   books: Book[] = [
     {

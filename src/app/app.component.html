@@ -6,6 +6,9 @@
       (addToCart)="addToCart($event)"
       *ngFor="let book of books"
       [bookInCart]="checkIfInCart(book)"
+      
+      [ngClass]="{'is-in-cart': checkIfInCart(book)}"
+      [ngStyle]="{'backgroundColor': backgroundColor}"
     ></app-book>
   </div>
 </div>
