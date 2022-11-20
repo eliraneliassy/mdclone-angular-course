@@ -13,6 +13,7 @@
 // const book1 = new Book('Harry Potter', '', 90.99);
 
 export interface Book {
+    id: string;
     title: string;
     imagePreviewUrl: string;
     price: number;

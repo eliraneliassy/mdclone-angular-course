@@ -1,7 +1,11 @@
 <div class="book" *ngIf="book">
-    <div class="title">{{ book.title }}</div>
-    <img [src]="book.imagePreviewUrl" />
-    <div class="price">{{ book.price }}</div>
+  <div class="title">{{ book.title }}</div>
+  <img [src]="book.imagePreviewUrl" />
+  <div class="price">{{ book.price }}</div>
 
-    <button (click)="addToCartClicked()">Add To Cart</button>
-  </div>
+  <button (click)="addToCartClicked()" *ngIf="!bookInCart; else elseBlock">Add To Cart</button>
+
+  <ng-template #elseBlock>
+    <button (click)="remvoeFromCartClicked()">Remove From Cart</button>
+  </ng-template>
+</div>

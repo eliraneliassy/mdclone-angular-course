@@ -9,11 +9,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class BookComponent {
 
   @Input() book?: Book;
+  @Input() bookInCart: boolean = false;
 
   @Output() addToCart: EventEmitter<Book> = new EventEmitter<Book>();
+  @Output() removeFromCart: EventEmitter<Book> = new EventEmitter<Book>();
 
   addToCartClicked(){
+    console.log('add to cart clicked');
     this.addToCart.emit(this.book);
+  }
+  remvoeFromCartClicked(){
+    this.removeFromCart.emit(this.book);
   }
 
 }
