@@ -1,3 +1,4 @@
+import { FeedService } from './feed.service';
 import { CartService } from './cart.service';
 import { Book } from './book.interface';
 import { Component } from '@angular/core';
@@ -35,8 +36,13 @@ export class AppComponent {
 
   cart: Book[] = this.cartService.cart;
 
-  constructor(private cartService: CartService) {
+  constructor(
+    private cartService: CartService,
+    private feedService: FeedService) {
+    this.feedService.getBooks('Angular').subscribe((result: any) => {
+      // TODO: set books 
 
+    })
   }
 
   addToCart(book: Book): void {
