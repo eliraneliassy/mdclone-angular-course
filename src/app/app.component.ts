@@ -39,8 +39,9 @@ export class AppComponent {
   constructor(
     private cartService: CartService,
     private feedService: FeedService) {
-    this.feedService.getBooks('Angular').subscribe((result: any) => {
-      // TODO: set books 
+    this.feedService.getBooks('Angular').subscribe((result: Book[]) => {
+      // TODO: set books
+      this.books = result
 
     })
   }
