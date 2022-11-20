@@ -1,3 +1,4 @@
+import { CartService } from './cart.service';
 import { Book } from './book.interface';
 import { Component } from '@angular/core';
 
@@ -32,20 +33,21 @@ export class AppComponent {
     }
   ];
 
-  cart: Book[] = [];
+  cart: Book[] = this.cartService.cart;
+
+  constructor(private cartService: CartService) {
+
+  }
 
   addToCart(book: Book): void {
-    this.cart.push(book);
+    this.cartService.addToCart(book);
   }
 
   checkIfInCart(book: Book): boolean {
-    return this.cart.findIndex(item => item.id === book.id) > -1;
+    return this.cartService.checkIfInCart(book);
   }
 
   removeFromCart(book: Book): void {
-    const index = this.cart.findIndex(item => item.id === book.id);
-    if (index > -1) {
-      this.cart.splice(index, 1);
-    }
+    this.cartService.removeFromCart(book);
   }
 }
