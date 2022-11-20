@@ -25,5 +25,12 @@ export class AppComponent {
       imagePreviewUrl: `https://m.media-amazon.com/images/I/51IHAPK5fsL._AC_SY780_.jpg`,
       price: 200
     }
-  ]
+  ];
+
+  cart: Book[] = [];
+
+  addToCart(book: Book) {
+    this.cart.push(book);
+    console.log(this.cart)
+  }
 }
