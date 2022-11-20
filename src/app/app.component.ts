@@ -11,19 +11,19 @@ export class AppComponent {
 
   books: Book[] = [
     {
-      id : '1',
+      id: '1',
       title: 'Harry Potter',
       imagePreviewUrl: `http://prodimage.images-bn.com/pimages/9780590353427_p0_v2_s1200x630.jpg`,
       price: 100
     },
     {
-      id : '2',
+      id: '2',
       title: 'Lord of the rings',
       imagePreviewUrl: `https://m.media-amazon.com/images/I/51kfFS5-fnL._AC_SY780_.jpg`,
       price: 120
     },
     {
-      id : '3',
+      id: '3',
       title: 'Game of thornes',
       imagePreviewUrl: `https://m.media-amazon.com/images/I/51IHAPK5fsL._AC_SY780_.jpg`,
       price: 200
@@ -32,12 +32,18 @@ export class AppComponent {
 
   cart: Book[] = [];
 
-  addToCart(book: Book) {
+  addToCart(book: Book): void {
     this.cart.push(book);
-    console.log(this.cart);
   }
 
-  checkIfInCart(book: Book) {
+  checkIfInCart(book: Book): boolean {
     return this.cart.findIndex(item => item.id === book.id) > -1;
+  }
+
+  removeFromCart(book: Book): void {
+    const index = this.cart.findIndex(item => item.id === book.id);
+    if (index > -1) {
+      this.cart.splice(index, 1);
+    }
   }
 }

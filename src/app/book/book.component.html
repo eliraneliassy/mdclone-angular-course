@@ -3,7 +3,9 @@
   <img [src]="book.imagePreviewUrl" />
   <div class="price">{{ book.price }}</div>
 
-  <button (click)="addToCartClicked()" *ngIf="!bookInCart; else elseBlock">Add To Cart</button>
+  <button (click)="addToCartClicked()" *ngIf="!bookInCart; else elseBlock">
+    Add To Cart
+  </button>
 
   <ng-template #elseBlock>
     <button (click)="remvoeFromCartClicked()">Remove From Cart</button>

@@ -19,7 +19,9 @@ export class BookComponent {
     this.addToCart.emit(this.book);
   }
   remvoeFromCartClicked(){
+    console.log('remove from cart clicked');
     this.removeFromCart.emit(this.book);
+
   }
 
 }
