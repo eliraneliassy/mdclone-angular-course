@@ -1,5 +1,10 @@
-<div class="book">
-  <div class="title">{{book.title}}</div>
-  <img [src]="book.imagePreviewUrl">
-  <div class="price">{{book.price}}</div>
+<div class="books">
+  <div class="book" *ngFor="let book of books">
+    <div class="title">{{book.title}}</div>
+    <img [src]="book.imagePreviewUrl">
+    <div class="price">{{book.price}}</div>
+  </div>
+
+  
 </div>
+
