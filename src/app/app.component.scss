@@ -28,6 +28,12 @@
     ul{
         li{
             margin-right: 10px;
+
+            a.active{
+                background-color: chartreuse;
+            }
         }
+
+
     }
 }

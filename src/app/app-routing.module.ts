@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { FeedComponent } from './feed/feed.component';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'feed',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'feed',
