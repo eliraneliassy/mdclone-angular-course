@@ -8,12 +8,14 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent {
-  cart: Book[] = this.cartService.cart;
+  cart: Book[] = [];
 
   constructor(
-    private cartService: CartService,
+  private cartService: CartService,
   ) {
-
+    this.cartService.cart.subscribe((cart) => {
+      this.cart = cart
+    })
   }
 
   addToCart(book: Book): void {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Book } from '../book.interface';
 import { CartService } from '../cart.service';
 import { FeedService } from '../feed.service';
@@ -8,7 +8,7 @@ import { FeedService } from '../feed.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss', '../app.component.scss']
 })
-export class FeedComponent {
+export class FeedComponent implements OnDestroy {
 
   backgroundColor: string = 'red';
 
@@ -22,6 +22,9 @@ export class FeedComponent {
       this.books = result
 
     })
+  }
+  ngOnDestroy(): void {
+    console.log('Destory');
   }
 
   addToCart(book: Book): void {

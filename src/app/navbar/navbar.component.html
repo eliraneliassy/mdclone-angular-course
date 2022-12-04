@@ -8,14 +8,15 @@
       <li>
         <a routerLink="/cart" routerLinkActive="active">cart</a>
       </li>
-      <li>
-        <a routerLink="/login" *ngIf="!user; else notIf">Login</a>
-        
-      </li>
-      <ng-template #notIf>
+      <ng-container *ngIf="!user; else notIf">
         <li>
-            {{user?.email}}, <a routerLink="/login">Logout </a>
+          <a routerLink="/login">Login</a>
         </li>
+        
+      </ng-container>
+      <ng-template #notIf>
+        <li>{{ user?.email }}, <a routerLink="/login">Logout </a></li>
+        <li>Num of Items: ({{numberOfItemInCart}})</li>
       </ng-template>
     </ul>
   </div>
