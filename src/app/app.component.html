@@ -1,28 +1,3 @@
-<div class="books">
-  <h2>Available books:</h2>
-  <div class="books-container">
-    <app-book
-      [book]="book"
-      (addToCart)="addToCart($event)"
-      *ngFor="let book of books"
-      [bookInCart]="checkIfInCart(book)"
-      
-      [ngClass]="{'is-in-cart': checkIfInCart(book)}"
-      [ngStyle]="{'backgroundColor': backgroundColor}"
-    ></app-book>
-  </div>
-</div>
+<h1>Hello to my store:</h1>
 
-<hr />
-
-<div class="cart">
-  <h2>My Shopping Cart:</h2>
-  <div class="books-container">
-    <app-book
-      [book]="book"
-      *ngFor="let book of cart"
-      (removeFromCart)="removeFromCart(book)"
-      [bookInCart]="checkIfInCart(book)"
-    ></app-book>
-  </div>
-</div>
+<router-outlet></router-outlet>
