@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    background-color: aqua;
+
+    ul{
+        li{
+            margin-right: 10px;
+
+            a.active{
+                background-color: chartreuse;
+            }
+        }
+
+
+    }
+}

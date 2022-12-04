@@ -1,3 +1,4 @@
+import { UserService } from './../user.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -7,7 +8,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  submit(form: NgForm){
-    console.log(form);
+
+  constructor(private userService: UserService) { }
+  submit(form: NgForm) {
+    this.userService.setUser(form.value.email);
   }
 }

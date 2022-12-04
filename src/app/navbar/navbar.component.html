@@ -1,0 +1,22 @@
+<div class="navbar">
+  <h1>Hello to my store:</h1>
+  <div class="links">
+    <ul>
+      <li>
+        <a routerLink="/feed" routerLinkActive="active">feed</a>
+      </li>
+      <li>
+        <a routerLink="/cart" routerLinkActive="active">cart</a>
+      </li>
+      <li>
+        <a routerLink="/login" *ngIf="!user; else notIf">Login</a>
+        
+      </li>
+      <ng-template #notIf>
+        <li>
+            {{user?.email}}, <a routerLink="/login">Logout </a>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+</div>
