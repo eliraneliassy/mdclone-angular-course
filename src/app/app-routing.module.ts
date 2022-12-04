@@ -1,3 +1,5 @@
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { FeedComponent } from './feed/feed.component';
@@ -15,12 +17,18 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: 'feed',
-    component: FeedComponent
+    component: FeedComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

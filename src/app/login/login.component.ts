@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -9,8 +10,9 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
   submit(form: NgForm) {
     this.userService.setUser(form.value.email);
+    this.router.navigateByUrl('/feed')
   }
 }

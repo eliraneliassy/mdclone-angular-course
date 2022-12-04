@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CartService } from './../cart.service';
 import { User } from './../user.interface';
 import { UserService } from './../user.service';
@@ -17,7 +18,8 @@ export class NavbarComponent implements OnDestroy {
   numberOfItemInCart: number = 0;
   constructor(
     private userService: UserService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {
     this.userSubscription = this.userService.getUser().subscribe((user: User | null) => {
       this.user = user
@@ -28,6 +30,11 @@ export class NavbarComponent implements OnDestroy {
     })
 
     // this.numberOfItemInCart = this.cartService.gerNumberOfItemsInCart();
+  }
+
+  logout(){
+    this.userService.logout();
+    this.router.navigateByUrl('/login')
   }
   ngOnDestroy(): void {
     this.cartSubscription?.unsubscribe();

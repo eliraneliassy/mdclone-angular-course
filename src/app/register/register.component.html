@@ -1,0 +1,29 @@
+<form [formGroup]="registerForm">
+  <div class="form-control">
+    <label id="name">Name</label>
+    <input for="name" formControlName="name"/>
+    <small style="color: red"
+    *ngIf="registerForm.get('name')?.touched && !registerForm.get('name')?.valid">
+        Name is required
+    </small>
+  </div>
+  <div class="form-control">
+    <label id="email">Email</label>
+    <input for="email" formControlName="email"/>
+    <small style="color: red"
+    *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')">
+        Email is required
+    </small>
+
+    <small style="color: red"
+    *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('email')">
+        input must be a valid email
+    </small>
+  </div>
+  <div class="form-control">
+    <label id="password">Password</label>
+    <input for="password" formControlName="password"/>
+  </div>
+
+  <button (click)="submit()" [disabled]="!registerForm.valid">Register</button>
+</form>
