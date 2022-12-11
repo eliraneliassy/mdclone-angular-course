@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { FeedComponent } from './feed/feed.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -16,21 +16,20 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
-  
+
   {
     path: 'feed',
-    component: FeedComponent,
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)
   },
   {
     path: 'cart',
-    component: CartComponent,
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
+
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

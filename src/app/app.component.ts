@@ -1,7 +1,7 @@
 import { FeedService } from './feed.service';
 import { CartService } from './cart.service';
 import { Book } from './book.interface';
-import { Component } from '@angular/core';
+import { ApplicationRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private appRef: ApplicationRef) {
+    this.appRef.isStable.subscribe(console.log)
+  }
 
   
 
