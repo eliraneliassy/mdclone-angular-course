@@ -1,4 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Subject, switchMap, map } from 'rxjs';
 import { Book } from '../book.interface';
 import { CartService } from '../cart.service';
 import { FeedService } from '../feed.service';
@@ -8,20 +9,33 @@ import { FeedService } from '../feed.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss', '../app.component.scss']
 })
-export class FeedComponent implements OnDestroy {
+export class FeedComponent implements OnDestroy, OnInit {
 
   backgroundColor: string = 'red';
 
   books: Book[] = [];
 
+  search$: Subject<string> = new Subject<string>();
+
   constructor(
     private cartService: CartService,
     private feedService: FeedService) {
-    this.feedService.getBooks('Angular').subscribe((result: Book[]) => {
-      // TODO: set books
-      this.books = result
-
-    })
+    
+  }
+  ngOnInit(): void {
+    this.search$
+    .pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      // map((term: string) => 'Harry Potter'),
+      switchMap((term: string) => this.feedService.getBooks(term))
+    )
+    .subscribe((result: Book[]) => {
+        // TODO: set books
+        this.books = result
+  
+      })
+    
   }
   ngOnDestroy(): void {
     console.log('Destory');
@@ -37,6 +51,10 @@ export class FeedComponent implements OnDestroy {
 
   removeFromCart(book: Book): void {
     this.cartService.removeFromCart(book);
+  }
+
+  search(target: any) {
+    this.search$.next(target.value);
   }
 
 }

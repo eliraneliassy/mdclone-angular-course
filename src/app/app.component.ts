@@ -11,7 +11,7 @@ import { ApplicationRef, Component } from '@angular/core';
 export class AppComponent {
 
   constructor(private appRef: ApplicationRef) {
-    this.appRef.isStable.subscribe(console.log)
+    // this.appRef.isStable.subscribe(console.log)
   }
 
   
