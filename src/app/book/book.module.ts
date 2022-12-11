@@ -1,3 +1,4 @@
+import { DiscountPipe } from './../discount.pipe';
 import { BookComponent } from './book.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,7 +7,8 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    BookComponent
+    BookComponent,
+    DiscountPipe
   ],
   exports: [
     BookComponent

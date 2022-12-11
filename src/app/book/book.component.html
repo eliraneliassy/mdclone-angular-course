@@ -1,7 +1,8 @@
 <div class="book" *ngIf="book">
-  <div class="title">{{ book.title }}</div>
+  <div class="title">{{ book.title | uppercase }}</div>
   <img [src]="book.imagePreviewUrl" />
-  <div class="price">{{ book.price }}</div>
+  <div class="price">{{ book.price | discount:100:0.9 | currency:'ILS'  }}</div>
+  <div class="date">{{book.publishedDate | date:'dd-MM-yyyy'}}</div>
 
   <button (click)="addToCartClicked()" *ngIf="!bookInCart; else elseBlock">
     Add To Cart

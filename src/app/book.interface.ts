@@ -17,4 +17,5 @@ export interface Book {
     title: string;
     imagePreviewUrl: string;
     price: number;
+    publishedDate: Date;
 }

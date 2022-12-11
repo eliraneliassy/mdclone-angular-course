@@ -23,7 +23,8 @@ export class FeedService {
         id: item.id,
         title: item.volumeInfo.title,
         imagePreviewUrl: item.volumeInfo.imageLinks.thumbnail,
-        price: item.volumeInfo.pageCount
+        price: item.volumeInfo.pageCount,
+        publishedDate: item.volumeInfo.publishedDate
       }))
     ));
   }
