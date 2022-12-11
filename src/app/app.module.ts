@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './book/book.component';
 import { FeedComponent } from './feed/feed.component';
 import { CartComponent } from './cart/cart.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -19,17 +19,17 @@ import { RegisterComponent } from './register/register.component';
     BookComponent,
     FeedComponent,
     CartComponent,
-    LoginComponent,
+
     NavbarComponent,
-    RegisterComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+
     
+
   ],
   providers: [],
   bootstrap: [AppComponent]
