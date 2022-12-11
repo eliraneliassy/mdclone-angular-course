@@ -18,7 +18,7 @@ export class FeedService {
 
     return this.httpClient.get(`${this.BASE_URL}`, { params })
     .pipe(
-      map((result: any) => result.items),
+      map((result: any) => result.items || []),
       map((items: any[]) => items.map((item: any) => ({
         id: item.id,
         title: item.volumeInfo.title,
