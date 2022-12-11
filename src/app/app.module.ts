@@ -12,6 +12,7 @@ import { CartComponent } from './cart/cart.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NgNotIfDirective } from './ng-not-if.directive';
 
 
 
@@ -19,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     AppComponent,
     NavbarComponent,
+    NgNotIfDirective,
     
 
   ],
