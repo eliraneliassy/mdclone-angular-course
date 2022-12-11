@@ -1,3 +1,4 @@
+import { ChangeColorDirective } from './../change-color.directive';
 import { FeedComponent } from './feed.component';
 
 
@@ -10,7 +11,8 @@ import { BookModule } from '../book/book.module';
 
 @NgModule({
   declarations: [
-    FeedComponent
+    FeedComponent,
+    ChangeColorDirective
   ],
   imports: [
     CommonModule,

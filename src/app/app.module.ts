@@ -14,10 +14,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    
 
   ],
   imports: [
